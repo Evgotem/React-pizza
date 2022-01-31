@@ -1,5 +1,6 @@
 import {Categories, Header, SortPopup} from './components';
 
+
 function App() {
   return (
     <div className="wrapper">
