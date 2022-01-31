@@ -1,4 +1,4 @@
-import {Categories, Header, Sort} from './components';
+import {Categories, Header, SortPopup} from './components';
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
                 'Закрытые',
               ]} 
             />
-            <Sort />
+            <SortPopup />
           </div>
           <h2 className="content__title">Все пиццы</h2>
           <div className="content__items">
