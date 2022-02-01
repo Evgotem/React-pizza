@@ -3,3 +3,4 @@ export { Categories } from './Categories';
 export { Header } from './Header';
 export { SortPopup } from './SortPopup';
 export { NotFound } from './NotFound';
+export { PizzaBlock } from './PizzaBlock';
