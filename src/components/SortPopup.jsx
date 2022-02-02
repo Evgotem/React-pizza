@@ -1,31 +1,35 @@
 import React from 'react';
 
-const sorts = ['популярности', 'цене', 'алфавиту'];
+const sorts = [
+  { name: 'популярности', type: 'popular' },
+  { name: 'цене', type: 'price' },
+  { name: 'алфавиту', type: 'alphabet' },
+];
 
 export const SortPopup = () => {
   const [visiblePopup, setVisiblePopup] = React.useState(false);
-
-  const [selectedSort, setSelectedSort] = React.useState(0)
-
+  const [selectedSort, setSelectedSort] = React.useState(0);
   const sortRef = React.useRef();
+  const activeLabel = sorts[selectedSort].name;
 
   React.useEffect(() => {
-    document.body.addEventListener('click', handleOutsideClick)
-  }, [])
+    document.body.addEventListener('click', handleOutsideClick);
+  }, []);
 
   const handleOutsideClick = (event) => {
     if (!event.path.includes(sortRef.current)) {
-      setVisiblePopup(false)
-    };
-  }
+      setVisiblePopup(false);
+      console.log('ffff');
+    }
+  };
 
   const handlePopupClick = () => {
     setVisiblePopup(!visiblePopup);
   };
 
-  const handleSortClick = index => {
-    setSelectedSort(index)
-  }
+  const handleSortClick = (index) => {
+    setSelectedSort(index);
+  };
 
   return (
     <div ref={sortRef} className='sort'>
@@ -43,20 +47,20 @@ export const SortPopup = () => {
           />
         </svg>
         <b>Сортировка по:</b>
-        <span onClick={handlePopupClick}>{sorts[selectedSort]}</span>
+        <span onClick={handlePopupClick}>{activeLabel}</span>
       </div>
       {visiblePopup && (
         <div className='sort__popup'>
           <ul>
-            {sorts 
-            &&
-              sorts.map((item, index)=>(
+            {sorts &&
+              sorts.map((obj, index) => (
                 <li
-                className={index === selectedSort ? 'active' : ''}
-                onClick={() => handleSortClick(index)}
-                key={item}>{item}</li>
-              ))
-            }
+                  className={index === selectedSort ? 'active' : ''}
+                  onClick={() => handleSortClick(index)}
+                  key={obj.type}>
+                  {obj.name}
+                </li>
+              ))}
           </ul>
         </div>
       )}
