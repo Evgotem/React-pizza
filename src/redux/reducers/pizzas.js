@@ -1,7 +1,7 @@
-const initialState = {
+const initialState = [{
   items: [],
   isLoaded: false,
-}
+}]
 
 const pizzas = (state = initialState, action) => {
   switch (action.type) {
@@ -10,7 +10,6 @@ const pizzas = (state = initialState, action) => {
         ...state,
         items: action.payload
       }
-
     default:
       return state;
   }
