@@ -1,12 +1,6 @@
 import React from 'react';
 
-const sorts = [
-  { name: 'популярности', type: 'popular' },
-  { name: 'цене', type: 'price' },
-  { name: 'алфавиту', type: 'alphabet' },
-];
-
-export const SortPopup = () => {
+export const SortPopup = React.memo(({sorts}) => {
   const [visiblePopup, setVisiblePopup] = React.useState(false);
   const [selectedSort, setSelectedSort] = React.useState(0);
   const sortRef = React.useRef();
@@ -69,4 +63,4 @@ export const SortPopup = () => {
       )}
     </div>
   );
-};
+});
