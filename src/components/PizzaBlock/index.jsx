@@ -9,7 +9,6 @@ export const PizzaBlock = ({ name, id, imageUrl, price, types, sizes }) => {
   const [activeType, setActiveType] = React.useState(types[0]);
   const [activeSize, setActiveSize] = React.useState(availableSizes.indexOf(sizes[0]));
 
-
   const onSelectType = (index) => {
     setActiveType(index);
   };
@@ -84,5 +83,5 @@ PizzaBlock.defaultProps = {
   name: '----',
   price: 0,
   types: [],
-  sizes: []
+  sizes: [],
 }
